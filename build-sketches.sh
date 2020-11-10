@@ -19,4 +19,4 @@ for example in "${examples[@]}"; do
 #     #cat output.txt
 #   fi
 done
-# exit $exit_code
+exit $exit_code
