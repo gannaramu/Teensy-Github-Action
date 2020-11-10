@@ -45,11 +45,14 @@ jobs:
                 ./arduino --install-library "base64"
         - name: Verify-Code 
           run: bash build-sketches.sh
-
+        
+        - name: Check-Status 
+          run: python3 check-status.py
         
         - name: upload-Code 
           uses: actions/upload-artifact@v2
           with:
             name: my-artifact
             path: error.txt
+
      
