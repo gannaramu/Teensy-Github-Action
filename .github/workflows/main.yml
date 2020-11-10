@@ -14,6 +14,8 @@ on:
 jobs:
   runMultipleCommands:
     runs-on: ubuntu-latest
+    env: 
+      ARDUINO_IDE_VERSION: "1.8.13"
     steps:
         - name: Check out repository 
           uses: actions/checkout@v1
@@ -52,6 +54,5 @@ jobs:
             path: error.txt
         - name: Check-Status 
           run: python3 check-status.py
-          env: 
-            ARDUINO_IDE_VERSION: "1.8.13"
+          
      
