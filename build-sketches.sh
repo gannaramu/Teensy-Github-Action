@@ -4,7 +4,7 @@ GRAY='\033[1;30m'; RED='\033[0;31m'; LRED='\033[1;31m'; GREEN='\033[0;32m'; LGRE
 examples=($(find $HOME/work -name "*.pde" -o -name "*.ino"))
 for example in "${examples[@]}"; do
   echo -n $example: 
-  $HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION/arduino --verify --board "teensy:avr:$DEVICE:usb=serial,speed=$SPEED,opt=o2std,keys=en-us" $example 2> error.txt > output.txt
+  $HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION/arduino --verify --board "teensy:avr:$DEVICE:usb=$USBTYPE,speed=$SPEED,opt=o2std,keys=en-us" $example 2> error.txt > output.txt
   result=`python3 check-status.py`
   echo -n $example: >> Final.txt
   if [ "$result" == "Pass" ]; then
