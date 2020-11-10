@@ -7,6 +7,8 @@ name: CI
 on:
   push:
     branches: [ master ]
+    paths:
+    - '!.github**'
   pull_request:
     branches: [ master ]
 
@@ -16,7 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       ARDUINO_IDE_VERSION: "1.8.13"
-      Device: "teensy40"
+      DEVICE: "teensy40"
+      SPEED: "600" 
     steps:
         - name: Check out repository 
           uses: actions/checkout@v1
