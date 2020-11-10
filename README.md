@@ -15,7 +15,7 @@ The Steps involved:
  ```
  # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -29,13 +29,16 @@ on:
 jobs:
   runMultipleCommands:
     runs-on: ubuntu-latest
+    env: 
+      ARDUINO_IDE_VERSION: "1.8.13"
+      DEVICE: "teensy40"
+      SPEED: "600" 
     steps:
         - name: Check out repository 
           uses: actions/checkout@v1
 
         - name: Install-Arduino
           run: |
-              export ARDUINO_IDE_VERSION="1.8.13"
               wget --quiet https://downloads.arduino.cc/arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz
               mkdir $HOME/arduino_ide
               tar xf arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz -C $HOME/arduino_ide/
@@ -46,8 +49,7 @@ jobs:
                 /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
                 sleep 3
                 export DISPLAY=:1.0
-                ./TeensyduinoInstall.linux64 --dir=$HOME/arduino_ide/arduino-1.8.13
-                echo "*********************************Another message or command"
+                ./TeensyduinoInstall.linux64 --dir=$HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION
         - name: Check-present-working-Directory 
           run: |
                 pwd
@@ -56,7 +58,7 @@ jobs:
                 ls
         - name: Install Additional Libraries
           run: |
-                cd $HOME/arduino_ide/arduino-1.8.13/
+                cd $HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION/
                 ./arduino --install-library "base64"
         - name: Verify-Code 
           run: bash build-sketches.sh
@@ -68,4 +70,5 @@ jobs:
             path: error.txt
         - name: Check-Status 
           run: python3 check-status.py
+         
 ```yml
