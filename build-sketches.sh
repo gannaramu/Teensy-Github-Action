@@ -20,4 +20,3 @@ for example in "${examples[@]}"; do
   fi
 done;
 exit $exit_code
-
