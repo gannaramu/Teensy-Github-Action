@@ -17,7 +17,8 @@ jobs:
     env: 
       ARDUINO_IDE_VERSION: "1.8.13"
       DEVICE: "teensy40"
-      SPEED: "600" 
+      SPEED: "600"
+      $USBTYPE: "serial"
     steps:
         - name: Check out repository 
           uses: actions/checkout@v1
