@@ -46,11 +46,10 @@ jobs:
        ./arduino --install-library "base64"
     - name: Verify-Code 
       run: bash build-sketches.sh
-      
-     
-    - name: Verify-Code 
-    - uses: actions/upload-artifact@v2
-    - with:
-       name: my-artifact
-       path: error.txt
+    
+    - name: upload-Code 
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: error.txt
      
