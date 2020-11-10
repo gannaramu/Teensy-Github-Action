@@ -9,10 +9,10 @@ for example in "${examples[@]}"; do
   echo -n $example: >> Final.txt
   if [ "$result" == "Pass" ]; then
     echo -e """$GREEN""\xe2\x9c\x93" 
-    echo -e """$GREEN""\xe2\x9c\x93" >> Final.txt
+    echo -e "\xe2\x9c\x93" >> Final.txt
   else
     echo -e """$RED""\xe2\x9c\x96" 
-    echo -e """$RED""\xe2\x9c\x96" >> Final.txt
+    echo -e "\xe2\x9c\x96" >> Final.txt
     echo "$result" 
   fi
 #   platform_switch=${PIPESTATUS[0]}
