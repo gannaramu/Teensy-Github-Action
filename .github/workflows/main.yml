@@ -44,6 +44,9 @@ jobs:
         cd $HOME/arduino_ide/arduino-1.8.13/
         ./arduino --install-library "base64"
      - id: Verify-Code 
-       run: |
-        bash build-sketches.sh
+       run: bash build-sketches.sh
+     - uses: actions/upload-artifact@v2
+     - with:
+        name: my-artifact
+        path: error.txt
      
