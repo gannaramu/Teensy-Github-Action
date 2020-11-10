@@ -14,9 +14,8 @@ for example in "${examples[@]}"; do
 #     cat error.txt
 #     exit_code=1
 #   else
-#     # heavy checkmark
-#     echo -e """$GREEN""\xe2\x9c\x93"
-#     #cat output.txt
+    # heavy checkmark
+    echo -e """$GREEN""\xe2\x9c\x93"
+    #cat output.txt
 #   fi
-done
-exit $exit_code
+done || exit 0
