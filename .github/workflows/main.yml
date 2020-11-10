@@ -45,5 +45,5 @@ jobs:
         ./arduino --install-library "base64"
      - id: Verify-Code 
        run: |
-        $HOME/arduino_ide/arduino-1.8.13/arduino --verify --board "teensy:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" Blink/Blink.ino> error.txt > output.txt
+        $HOME/arduino_ide/arduino-1.8.13/arduino --verify --board "teensy:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" Blink/Blink.ino 2> error.txt > output.txt
      
