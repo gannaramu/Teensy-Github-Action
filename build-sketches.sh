@@ -18,5 +18,5 @@ for example in "${examples[@]}"; do
 #     echo -e """$GREEN""\xe2\x9c\x93"
 #     #cat output.txt
 #   fi
-done;
+done
 # exit $exit_code
