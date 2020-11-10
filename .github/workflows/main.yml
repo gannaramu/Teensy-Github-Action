@@ -35,7 +35,6 @@ jobs:
                 sleep 3
                 export DISPLAY=:1.0
                 ./TeensyduinoInstall.linux64 --dir=$HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION
-                echo "*********************************Another message or command"
         - name: Check-present-working-Directory 
           run: |
                 pwd
